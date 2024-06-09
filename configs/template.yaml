@@ -17,6 +17,8 @@ sensor:
   - platform: standing_desk_height
     id: desk_height
     name: ${desk_height_name}
+    device_class: distance
+    state_class: measurement
     unit_of_measurement: ${standing_desk_height_units}
     variant: ${standing_desk_variant}
 
@@ -27,7 +29,7 @@ output:
     pin:
       number: ${standing_desk_up_pin}
       allow_other_uses: true
-    
+
   - platform: gpio
     inverted: true
     id: standing_desk_down_pin
@@ -39,6 +41,7 @@ number:
   - platform: template
     id: target_desk_height
     name: ${target_desk_height_name}
+    device_class: distance
     unit_of_measurement: ${standing_desk_height_units}
     restore_value: true
     optimistic: true
